@@ -1,0 +1,137 @@
+<div class="flex items-center justify-center h-screen w-full">
+  <div class="max-w-3xl w-full rounded-md shadow-md border border-gray-100 p-6">
+    <h2 class="text-center font-semibold">Add Book</h2>
+    <div *ngIf="allError" class="flex items-center justify-center">
+      <span
+        class="p-1 text-sm my-3 bg-red-200 text-red-700 rounded-md max-w-md text-center w-full"
+        >{{ allError }}</span
+      >
+    </div>
+    <div *ngIf="successMessage" class="flex items-center justify-center">
+      <span
+        class="p-1 text-sm my-3 bg-green-200 text-green-700 rounded-md max-w-md text-center w-full"
+        >{{ successMessage }}</span
+      >
+    </div>
+    <form (submit)="handleSubmit()">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="block my-2">
+          <label for="title" class="block">Title</label>
+          <input
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="title"
+            id="title"
+            [(ngModel)]="title"
+            (input)="onValueChange()"
+          />
+        </div>
+        <div class="block my-2">
+          <label for="author" class="block">Author</label>
+          <input
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="author"
+            id="author"
+            (input)="onValueChange()"
+            [(ngModel)]="author"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Pages</label>
+          <input
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="pages"
+            id="pages"
+            (input)="onValueChange()"
+            [(ngModel)]="pages"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Description</label>
+          <input
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="description"
+            id="description"
+            (input)="onValueChange()"
+            [(ngModel)]="description"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Publisher</label>
+          <input
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="publisher"
+            id="publisher"
+            (input)="onValueChange()"
+            [(ngModel)]="publisher"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Total Copies</label>
+          <input
+            type="number"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="totalCopies"
+            id="totalCopies"
+            (input)="onValueChange()"
+            [(ngModel)]="totalCopies"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Copies</label>
+          <input
+            type="number"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="copies"
+            id="copies"
+            (input)="onValueChange()"
+            [(ngModel)]="copies"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Year</label>
+          <input
+            type="number"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="year"
+            id="year"
+            (input)="onValueChange()"
+            [(ngModel)]="year"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Edition</label>
+          <input
+            type="string"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="edition"
+            id="edition"
+            (input)="onValueChange()"
+            [(ngModel)]="edition"
+          />
+        </div>
+        <div class="block">
+          <label for="title" class="block">Language</label>
+          <input
+            type="string"
+            class="w-full px-4 py-2 border border-gray-300 focus:outline-none rounded-md"
+            name="language"
+            id="language"
+            (input)="onValueChange()"
+            [(ngModel)]="language"
+          />
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="bg-green-600 hover:bg-green-700 text-white rounded-md px-6 py-2 font-semibold transition-all block my-2 mx-auto"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

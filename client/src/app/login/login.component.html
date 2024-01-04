@@ -1,0 +1,58 @@
+<div class="flex items-center justify-center w-full h-screen bg-green-600">
+  <div
+    class="max-w-2xl w-full rounded-md border border-gray-100 bg-white shadow-md p-2"
+  >
+    <h3 class="text-gray-700 my-2 font-semibold text-2xl text-center">
+      <span class="text-green-600">Book</span>spot
+    </h3>
+    <h2 class="text-xl font-semibold text-center">Login</h2>
+    <div
+      class="bg-red-200 text-red-700 font-semibold p-2 rounded-md block my-2 w-2/4 mx-auto"
+      *ngIf="emptyError"
+    >
+      <p class="text-sm text-center">Email or password missing !</p>
+    </div>
+    <form (submit)="onSubmit()">
+      <div class="flex items-center justify-center">
+        <div class="block mx-auto my-2">
+          <label class="block" for="email">Email</label>
+          <input
+            type="email"
+            class="w-96 border-2 border-gray-300 rounded-md focus:outline-none focus:border-green-600 px-4 py-1.5"
+            name="email"
+            id="email"
+            [ngSwitch]="emptyError"
+            [(ngModel)]="email"
+            (input)="onPasswordChange()"
+          />
+        </div>
+      </div>
+      <div class="flex items-center justify-center">
+        <div class="block my-2">
+          <label class="block" for="email">Password</label>
+          <input
+            type="password"
+            class="w-96 border-2 border-gray-300 rounded-md focus:outline-none focus:border-green-600 px-4 py-1.5"
+            [(ngModel)]="password"
+            (input)="onPasswordChange()"
+            name="password"
+            id="password"
+          />
+        </div>
+      </div>
+      <button
+        class="bg-green-600 hover:bg-green-700 text-white rounded-md px-6 py-2 font-semibold transition-all block my-2 mx-auto"
+      >
+        Submit
+      </button>
+    </form>
+    <p class="text-sm text-center font-semibold text-gray-600 my-2">
+      Don't have an account ?
+      <span
+        ><a class="text-green-700 hover:underline" href="/signup"
+          >Create an account</a
+        ></span
+      >
+    </p>
+  </div>
+</div>

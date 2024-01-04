@@ -1,0 +1,49 @@
+<div
+  *ngIf="!tab"
+  class="grid grid-cols-3 gap-4 p-2 h-screen w-full overflow-y-auto"
+>
+  <div
+    class="w-full mx-auto bg-white p-8 rounded shadow-md border border-gray-300"
+    *ngFor="let book of allBooks"
+  >
+    <h1 class="text-xl font-bold mb-4">{{ book.title }}</h1>
+    <p class="text-gray-600 text-sm mb-2">{{ book.author }}</p>
+    <div class="block items-center text-gray-600 text-sm mb-4">
+      <div class="flex items-center justify-between mb-2">
+        <span class="mr-2"><strong>Language</strong>: {{ book.language }}</span>
+        <span class="mr-2"><strong>Pages</strong>: {{ book.pages }}</span>
+      </div>
+      <p class="mr-2 flex-grow"><strong>Edition</strong>: {{ book.edition }}</p>
+    </div>
+    <p class="text-gray-800 mb-4 text-sm">{{ book.description }}</p>
+    <div class="text-gray-600 text-sm mb-4">
+      <p class="mr-2 mb-2"><strong>Publisher</strong>: {{ book.publisher }}</p>
+      <p class="mr-2"><strong>Year</strong>: {{ book.year }}</p>
+    </div>
+    <div class="flex items-center justify-between text-gray-600 text-sm mb-4">
+      <span class="mr-2"
+        ><strong>Total Copies</strong>: {{ book.totalCopies }}</span
+      >
+      <span class="mr-2"
+        ><strong>Available Copies</strong>: {{ book.copies }}</span
+      >
+    </div>
+    <button
+      (click)="handleEdit(book)"
+      class="bg-green-700 px-4 py-2 rounded-md text-white font-semibold mr-5"
+    >
+      Edit
+    </button>
+    <button
+      class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
+    >
+      Borrow Now
+    </button>
+  </div>
+</div>
+<app-editbook
+  *ngIf="tab"
+  [tab]="tab"
+  (dataUpdated)="updateParentObject($event)"
+  [selectedBook]="selectedBook"
+></app-editbook>
